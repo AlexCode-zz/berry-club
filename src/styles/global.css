@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap');
+
+@import './variables.css';
+@import './reset.css';
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-white);
+  color: var(--color-text-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* La portada se apoya en una base cálida continua: evita que cualquier
+   separación entre secciones deje al descubierto una franja blanca. */
+body[data-page="home"] {
+  background-color: var(--color-cream);
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: var(--space-md);
+  color: var(--color-text-dark);
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--color-text-dark);
+  opacity: 0.8;
+  margin-bottom: var(--space-2xl);
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--space-md);
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+  }
+}

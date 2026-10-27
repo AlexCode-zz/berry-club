@@ -1,0 +1,512 @@
+/* =========================================================
+   Producto persistente (capa fija)
+   La fotografía se compone a sangre, sin tarjeta ni bordes.
+   ========================================================= */
+.home-main {
+  position: relative;
+  z-index: 1;
+}
+
+.product-scene {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  perspective: 1400px;
+  perspective-origin: 62% 45%;
+  background-color: var(--color-cream);
+}
+
+.product-scene-backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 70% 40%, #fdeef1 0%, transparent 62%),
+    linear-gradient(135deg, #fff8f0 0%, #f8dde3 55%, #f3c9d2 100%);
+}
+
+.product-scene-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    radial-gradient(ellipse at 68% 38%, rgba(255, 255, 255, 0.06) 0%, rgba(255, 248, 240, 0) 52%),
+    radial-gradient(ellipse at 50% 100%, rgba(143, 38, 61, 0.1) 0%, transparent 55%);
+}
+
+.product-scene-stage {
+  position: absolute;
+  /* Solape mínimo: al reducir la escala, la foto sigue llegando a los bordes. */
+  inset: -8.2%;
+  z-index: 1;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.product-scene-inner {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+.product-scene-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 46%;
+  /* El encuadre se resuelve con cover/object-position: nada de estiramientos. */
+  transform: translateZ(0);
+  filter: saturate(1.06) contrast(1.04) brightness(1.01);
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Velo editorial: protege el texto de la izquierda y deja respirar el producto */
+.product-scene-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background:
+    linear-gradient(90deg,
+      rgba(255, 248, 240, 0.94) 0%,
+      rgba(255, 248, 240, 0.8) 18%,
+      rgba(255, 248, 240, 0.34) 34%,
+      rgba(255, 248, 240, 0) 52%),
+    linear-gradient(0deg, rgba(255, 248, 240, 0.16) 0%, rgba(255, 248, 240, 0) 18%);
+}
+
+/* =========================================================
+   Hero inmersivo: el texto viaja, el producto permanece
+   ========================================================= */
+.immersive-hero {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-slide {
+  min-height: calc(100vh - var(--header-height));
+  min-height: calc(100svh - var(--header-height));
+  display: flex;
+  align-items: center;
+  padding: clamp(3rem, 8vh, 6rem) clamp(1.5rem, 8vw, 9rem);
+  position: relative;
+}
+
+.hero-slide--upper {
+  align-items: flex-start;
+  padding-top: clamp(7rem, 18vh, 12rem);
+}
+
+.hero-slide--lower {
+  align-items: flex-end;
+  padding-bottom: clamp(7rem, 16vh, 11rem);
+}
+
+.hero-slide-content {
+  width: min(34rem, 46vw);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  position: relative;
+  opacity: 0.7;
+  transform: translateY(2.5rem);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.hero-slide.is-active .hero-slide-content,
+.hero-slide:first-child .hero-slide-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-slide-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.hero-slide-counter {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--color-rose-deep);
+  opacity: 0.75;
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-badge {
+  display: inline-block;
+  color: var(--color-strawberry);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  width: fit-content;
+}
+
+.hero-slide-title {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 5.6vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  color: var(--color-text-dark);
+  text-wrap: balance;
+  max-width: 14ch;
+}
+
+.hero-slide-desc {
+  font-size: clamp(1rem, 1.35vw, 1.25rem);
+  line-height: 1.65;
+  color: var(--color-text-dark);
+  opacity: 0.82;
+  max-width: 44ch;
+}
+
+.hero-slide-actions {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin-top: var(--space-xs);
+}
+
+.hero-slide-actions .btn {
+  padding: 1rem 1.9rem;
+}
+
+/* Indicador de progreso */
+.hero-progress {
+  position: fixed;
+  right: clamp(1rem, 2.4vw, 2.4rem);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: clamp(120px, 22vh, 210px);
+  background-color: rgba(42, 32, 34, 0.14);
+  z-index: 90;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.hero-progress-bar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-strawberry);
+  transform-origin: top center;
+  transform: scaleY(0.015);
+}
+
+.hero.is-complete .hero-progress {
+  opacity: 0;
+}
+
+/* Señal de scroll */
+.hero-scroll-cue {
+  position: absolute;
+  left: clamp(1.5rem, 8vw, 9rem);
+  bottom: clamp(2rem, 5vh, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-rose-deep);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.hero-slide.is-active .hero-scroll-cue {
+  opacity: 0.7;
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(180deg, var(--color-strawberry), rgba(217, 54, 80, 0));
+  animation: scrollCue 2.4s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+@keyframes scrollCue {
+  0%, 100% { transform: scaleY(0.4); opacity: 0.4; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
+/* =========================================================
+   Beneficios
+   ========================================================= */
+.benefits {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-3xl) 0;
+  background: linear-gradient(180deg,
+    rgba(255, 248, 240, 0.35) 0%,
+    rgba(255, 248, 240, 0.94) 18%,
+    var(--color-cream) 55%);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+.benefit-card {
+  text-align: center;
+  padding: var(--space-xl);
+  background-color: rgba(255, 255, 255, 0.72);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(248, 221, 227, 0.9);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  background-color: var(--color-white);
+}
+
+.benefit-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: var(--space-sm);
+  color: var(--color-strawberry);
+}
+
+.benefit-desc {
+  color: var(--color-text-dark);
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   Tamaños y cierre
+   ========================================================= */
+.sizes-section {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-3xl) 0;
+  /* La sección comparte la base cálida con el footer: sin corte blanco. */
+  background-color: var(--color-cream);
+  scroll-margin-top: calc(var(--header-height) + var(--space-md));
+}
+
+/* El destino del enlace móvil recibe foco sin perder la referencia visual. */
+.sizes-section:focus-visible {
+  outline: 2px solid var(--color-strawberry);
+  outline-offset: -4px;
+}
+
+.sizes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.size-card {
+  background-color: var(--color-white);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-rose-soft);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.size-card:hover {
+  border-color: var(--color-strawberry);
+  box-shadow: var(--shadow-md);
+}
+
+.size-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--color-text-dark);
+}
+
+.size-card-desc {
+  color: var(--color-text-dark);
+  opacity: 0.8;
+}
+
+.size-card-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-strawberry);
+}
+
+.size-card .btn {
+  margin-top: auto;
+  width: 100%;
+}
+
+/* El cierre del footer pertenece a la misma superficie que la sección de
+   tamaños; así ningún margen intermedio descubre la capa fija del producto. */
+body[data-page="home"] .site-footer {
+  margin-top: 0;
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 1024px) {
+  .product-scene {
+    perspective-origin: 55% 40%;
+  }
+  
+  .product-scene-image {
+    object-position: 58% 42%;
+  }
+  
+  .product-scene-veil {
+    background:
+      linear-gradient(180deg,
+        rgba(255, 248, 240, 0) 0%,
+        rgba(255, 248, 240, 0) 38%,
+        rgba(255, 248, 240, 0.52) 60%,
+        rgba(255, 248, 240, 0.86) 100%);
+  }
+  
+  .hero-slide {
+    padding: 0 clamp(1.5rem, 6vw, 4rem) clamp(3rem, 8vh, 5rem);
+    align-items: flex-end;
+    min-height: calc(100svh - var(--header-height));
+  }
+  
+  .hero-slide--upper,
+  .hero-slide--lower {
+    align-items: flex-end;
+    padding-top: 0;
+    padding-bottom: clamp(3rem, 8vh, 5rem);
+  }
+  
+  .hero-slide-content {
+    width: 100%;
+    max-width: 34rem;
+    gap: var(--space-md);
+  }
+  
+  .hero-slide-title {
+    font-size: clamp(2.1rem, 5.4vw, 3.2rem);
+    max-width: 18ch;
+  }
+  
+  .hero-scroll-cue {
+    display: none;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  
+  .sizes-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}
+
+/* Tablet horizontal: el texto sigue a la izquierda y el producto puede
+   conservar su color; no necesita el velo inferior de móvil. */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .product-scene-veil {
+    background:
+      linear-gradient(90deg,
+        rgba(255, 248, 240, 0.92) 0%,
+        rgba(255, 248, 240, 0.7) 24%,
+        rgba(255, 248, 240, 0.26) 48%,
+        rgba(255, 248, 240, 0) 64%),
+      linear-gradient(0deg, rgba(255, 248, 240, 0.2) 0%, rgba(255, 248, 240, 0) 26%);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-scene-image {
+    object-position: 58% 36%;
+  }
+  
+  .hero-slide {
+    padding-bottom: clamp(3.5rem, 9vh, 6rem);
+  }
+  
+  .hero-slide--upper,
+  .hero-slide--lower {
+    padding-bottom: clamp(3.5rem, 9vh, 6rem);
+  }
+  
+  .hero-slide-content {
+    opacity: 0.85;
+    transform: translateY(1.5rem);
+  }
+  
+  .hero-slide.is-active .hero-slide-content {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .hero-slide-title {
+    font-size: clamp(2rem, 8.6vw, 2.75rem);
+    line-height: 1.05;
+  }
+  
+  .hero-slide-desc {
+    font-size: 1rem;
+    max-width: 38ch;
+  }
+  
+  .hero-slide-actions {
+    width: 100%;
+  }
+  
+  .hero-slide-actions .btn {
+    width: 100%;
+  }
+  
+  .hero-progress {
+    right: 0.75rem;
+    height: 96px;
+  }
+  
+  .section-title {
+    font-size: clamp(1.9rem, 7vw, 2.4rem);
+  }
+}
+
+@media (max-width: 390px) {
+  .hero-slide-title {
+    font-size: clamp(1.85rem, 9vw, 2.2rem);
+  }
+  
+  .hero-slide-content {
+    gap: var(--space-sm);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-scene-stage {
+    will-change: auto;
+  }
+  
+  .hero-slide-content {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  
+  .hero-scroll-line {
+    animation: none;
+  }
+}
