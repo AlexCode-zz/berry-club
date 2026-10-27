@@ -212,33 +212,6 @@ La portada usa `srcset` para escoger entre la versión de 768 px y la HD. Si sus
 - Los modales atrapan el foco, cierran con Escape o clic exterior y devuelven el foco al control de origen.
 - `prefers-reduced-motion` desactiva las animaciones de la escena y del total.
 
-## Despliegue
-
-Todas las rutas son relativas, por lo que el sitio funciona en la raíz de un dominio o en una subcarpeta.
-
-### GitHub Pages
-
-1. Publica el contenido de `berry-club/` como raíz del sitio.
-2. En **Settings → Pages**, selecciona **Deploy from a branch**.
-3. Elige la rama y la carpeta raíz.
-4. Espera el despliegue y comprueba las tres páginas.
-
-### Netlify
-
-1. Arrastra la carpeta `berry-club` a [netlify.com/drop](https://app.netlify.com/drop).
-2. O conecta el repositorio y define `berry-club/` como directorio de publicación.
-
-La imagen Open Graph es relativa; para producción conviene sustituirla por una URL absoluta.
-
-## Limitaciones y siguientes pasos
-
-- No hay backend, cuentas, pagos, inventario, reservas, entregas ni pedidos confirmados.
-- El carrito y el idioma solo persisten en el navegador actual.
-- La escena 3D es una simulación 2.5D con perspectiva y transformaciones CSS sobre fotografía.
-- La fotografía está pensada para un encuadre horizontal; otro formato puede requerir ajustar `object-position`.
-- El destinatario de pedidos debe configurarse de forma explícita.
-- Para convertirla en una tienda real faltarían: API de pedidos, autenticación, stock, pasarela de pago, cálculo de entrega, panel administrativo, analítica, política de privacidad y avisos legales.
-- Las pruebas de navegador se ejecutaron contra Chromium con un servidor HTTP local; no se ha validado en Safari o Firefox reales.
 
 ## Licencia
 
