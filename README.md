@@ -2,7 +2,7 @@
 
 Experiencia frontend de portafolio para una marca ficticia de fresas con crema. Incluye portada editorial, personalizador de producto, carrito persistente, página de carrito, resumen de WhatsApp y una interfaz bilingüe español/inglés.
 
-> **Demo de portafolio.** Berry Club, sus precios y sus fotografías comerciales son ficticios. La aplicación no procesa pagos, no confirma pedidos, no gestiona inventario y no envía mensajes por sí sola.
+> **Demo de portafolio.** Berry Club, sus precios y sus fotografías comerciales son ficticios.
 
 ## Funcionalidades
 
