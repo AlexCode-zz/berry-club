@@ -200,25 +200,7 @@ La portada usa `srcset` para escoger entre la versión de 768 px y la HD. Si sus
 - Metadatos iniciales: `<head>` de `index.html`, `pedido.html` y `carrito.html`.
 - El idioma puede fijarse con `?lang=es` o `?lang=en`.
 
-### WhatsApp
 
-La configuración vive en `src/data/site-config.js`:
-
-```javascript
-contact: {
-  // CTA comercial del portafolio; no es el destinatario del pedido.
-  whatsappNumber: '76599530',
-  whatsappMessage: '...',
-  // Destinatario del flujo de pedidos. Vacío por defecto.
-  orderWhatsappNumber: ''
-}
-```
-
-- `orderWhatsappNumber` está vacío por defecto para no inventar un número comercial.
-- Con el destinatario vacío, el modal muestra el resumen, permite copiarlo y **no genera ningún enlace `wa.me`**.
-- Para habilitar la apertura de WhatsApp, asigna un número internacional de 8 a 15 dígitos, sin `+`, espacios ni guiones.
-- Aun con un número configurado, el mensaje es una demostración: el usuario debe abrir WhatsApp y enviarlo. No hay confirmación del pedido ni integración posterior.
-- El mensaje incluye líneas, complementos, cantidades, precios y total; se valida su longitud antes de construir la URL.
 
 ## Responsive y accesibilidad
 
