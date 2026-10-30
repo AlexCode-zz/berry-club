@@ -216,3 +216,5 @@ La portada usa `srcset` para escoger entre la versión de 768 px y la HD. Si sus
 ## Licencia
 
 Proyecto demostrativo de portafolio. La marca, los textos comerciales y los precios son ficticios.
+
+67
