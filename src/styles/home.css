@@ -60,36 +60,6 @@
   -webkit-user-drag: none;
 }
 
-/* Panel editorial: mitad de papel crema con filo de tinta y mantequilla. */
-.product-scene-panel {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 3;
-  width: 52%;
-  background-color: var(--bc-cream);
-  border-right: 3px solid var(--bc-ink);
-  box-shadow: inset -12px 0 0 var(--bc-butter);
-  animation: panelIn 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-/* Trama de puntos de imprenta, solo como textura. */
-.product-scene-panel::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(var(--bc-ink) 0.9px, transparent 1px);
-  background-size: 13px 13px;
-  opacity: 0.055;
-  pointer-events: none;
-}
-
-@keyframes panelIn {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(0); }
-}
-
 .product-scene-veil {
   display: none;
 }
@@ -127,9 +97,16 @@
   gap: clamp(0.7rem, 1.4vh, 1.1rem);
   width: min(32rem, 39vw);
   position: relative;
+  padding: clamp(1.5rem, 3vw, 2.5rem) clamp(2rem, 4vw, 3rem);
+  background: rgba(255, 247, 234, 0.8);
+  border: 2px solid var(--bc-ink);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-hard);
+  backdrop-filter: blur(3px);
   opacity: 0.22;
   transform: translateY(1.6rem);
   transition: opacity 0.55s ease, transform 0.55s ease;
+  text-align: left;
 }
 
 .hero-slide.is-active .hero-slide-content {
@@ -645,43 +622,30 @@ body[data-page="home"] .site-footer {
     object-position: 58% 34%;
   }
 
-  /* En tablet y móvil el panel se convierte en la hoja inferior. */
-  .product-scene-panel {
-    top: auto;
-    width: 100%;
-    height: 60%;
-    border-top: 3px solid var(--bc-ink);
-    border-right: 0;
-    box-shadow: inset 0 12px 0 var(--bc-butter);
-    animation-name: panelInMobile;
-  }
-
-  @keyframes panelInMobile {
-    from { transform: translateY(100%); }
-    to { transform: translateY(0); }
-  }
-
   .hero-slide {
-    align-items: flex-end;
+    align-items: center;
+    text-align: center;
     min-height: calc(100svh - var(--header-height));
-    padding: 0 clamp(1.5rem, 6vw, 4rem) clamp(3rem, 7vh, 5rem);
+    padding: clamp(2rem, 5vh, 4rem) clamp(1.5rem, 6vw, 4rem) clamp(3rem, 7vh, 5rem);
   }
 
   .hero-slide--upper,
   .hero-slide--lower {
-    align-items: flex-end;
+    align-items: center;
     padding-top: 0;
     padding-bottom: clamp(3rem, 7vh, 5rem);
   }
 
   .hero-slide-content {
-    width: 100%;
-    max-width: 36rem;
+    width: auto;
+    max-width: 34rem;
+    margin: 0 auto;
     gap: var(--space-sm);
+    text-align: center;
   }
 
   .hero-slide-title {
-    max-width: 15ch;
+    max-width: none;
     font-size: clamp(2.3rem, 6.2vw, 3.5rem);
   }
 
@@ -727,10 +691,6 @@ body[data-page="home"] .site-footer {
     object-position: 55% 32%;
   }
 
-  .product-scene-panel {
-    height: 64%;
-  }
-
   .hero-slide {
     padding-bottom: clamp(2.5rem, 6vh, 4rem);
   }
@@ -759,10 +719,11 @@ body[data-page="home"] .site-footer {
 
   .hero-slide-actions {
     width: 100%;
+    justify-content: center;
   }
 
   .hero-slide-actions .btn {
-    width: 100%;
+    width: auto;
   }
 
   .hero-slide-actions .text-link {
@@ -806,10 +767,6 @@ body[data-page="home"] .site-footer {
     font-size: 0.62rem;
   }
 
-  .product-scene-panel {
-    height: 67%;
-  }
-
   .size-row {
     grid-template-columns: 64px minmax(0, 1fr);
     gap: 0.8rem;
@@ -822,10 +779,6 @@ body[data-page="home"] .site-footer {
 
 /* Móvil en horizontal: la hoja inferior necesita más altura para el texto. */
 @media (max-width: 1024px) and (max-height: 540px) {
-  .product-scene-panel {
-    height: 74%;
-  }
-
   .hero-slide-title {
     font-size: clamp(1.7rem, 5vh, 2.2rem);
   }
@@ -841,7 +794,6 @@ body[data-page="home"] .site-footer {
     will-change: auto;
   }
 
-  .product-scene-panel,
   .hero-slide:first-child .hero-slide-meta,
   .hero-slide:first-child .hero-slide-title,
   .hero-slide:first-child .hero-slide-desc,
