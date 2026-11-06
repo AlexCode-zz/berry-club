@@ -97,12 +97,12 @@
   gap: clamp(0.7rem, 1.4vh, 1.1rem);
   width: min(32rem, 39vw);
   position: relative;
-  padding: clamp(1.5rem, 3vw, 2.5rem) clamp(2rem, 4vw, 3rem);
-  background: rgba(255, 247, 234, 0.8);
-  border: 2px solid var(--bc-ink);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-hard);
-  backdrop-filter: blur(3px);
+  padding: clamp(1rem, 2vw, 1.75rem) clamp(1.5rem, 3vw, 2.25rem);
+  background: rgba(255, 247, 234, 0.35);
+  border: 1.5px solid var(--bc-ink);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-hard-sm);
+  backdrop-filter: blur(2px);
   opacity: 0.22;
   transform: translateY(1.6rem);
   transition: opacity 0.55s ease, transform 0.55s ease;

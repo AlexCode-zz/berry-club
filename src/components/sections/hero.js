@@ -52,23 +52,9 @@ export function createHero() {
       ]));
     }
 
-    if (slide.cta) {
-      const actions = createElement('div', { class: 'hero-slide-actions' });
-      const link = createElement('a', {
-        class: 'btn btn-primary',
-        href: withLanguage(slide.cta.href)
-      }, [t('cta.build')]);
-      actions.appendChild(link);
-
-      if (index === 0) {
-        actions.appendChild(createElement('a', {
-          class: 'text-link',
-          href: '#tamanos'
-        }, [t('cta.viewSizes')]));
-      }
-
-      content.appendChild(actions);
-    }
+    // El CTA principal del hero se quitó para que la fotografía sea el
+    // único protagonista de la portada. El acceso a tamaños está en el
+    // enlace «Ver tamaños» del encabezado y en la sección de la carta.
 
     slideEl.appendChild(content);
 
