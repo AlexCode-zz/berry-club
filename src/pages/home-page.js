@@ -1,6 +1,7 @@
 import { createHeader } from '../components/layout/header.js';
 import { createFooter } from '../components/layout/footer.js';
 import { createHero, updateHeroProgress, setActiveSlide } from '../components/sections/hero.js';
+import { createMarquee } from '../components/sections/marquee.js';
 import { createBenefits } from '../components/sections/benefits.js';
 import { createProductShowcase } from '../components/sections/product-showcase.js';
 import { createProductScene, applyProductState } from '../components/sections/product-scene.js';
@@ -42,6 +43,7 @@ export function initHomePage() {
   
   const hero = createHero();
   main.appendChild(hero);
+  main.appendChild(createMarquee());
   main.appendChild(createBenefits());
   main.appendChild(createProductShowcase());
   app.appendChild(main);

@@ -14,7 +14,7 @@ export const es = {
     }
   },
   portfolio: {
-    badge: 'PROYECTO DE PORTAFOLIO · DEMO INTERACTIVA'
+    badge: 'Proyecto de portafolio · Demo interactiva'
   },
   language: {
     label: 'Idioma',
@@ -25,14 +25,16 @@ export const es = {
   },
   nav: {
     home: 'Inicio',
+    sizes: 'La carta',
     customize: 'Personalizar',
     products: 'Productos',
-    demo: 'DEMO DE PORTAFOLIO',
+    demo: 'Demo de portafolio',
     mainLabel: 'Navegación principal'
   },
   cta: {
     build: 'Crear mi vaso',
-    select: 'Seleccionar',
+    select: 'Elegir',
+    viewSizes: 'Ver tamaños',
     orderWhatsApp: 'Pedir por WhatsApp',
     followExploring: 'Seguir explorando',
     business: 'Quiero una web para mi negocio'
@@ -43,53 +45,64 @@ export const es = {
     orderBadge: 'Demo · Precios ficticios'
   },
   footer: {
-    links: 'Enlaces',
+    links: 'Explorar',
+    tagline: 'Fresas con crema, hechas al momento.',
+    businessTitle: '¿Quieres una web así?',
+    businessText: 'Este es un proyecto de portafolio. Cuéntame de tu negocio y la construimos juntos.',
+    businessCta: 'Hablemos por WhatsApp',
     copyright: '© {year} {brand}. {note}'
   },
   home: {
     slides: {
       presentacion: {
-        eyebrow: 'UN ANTOJO QUE SE DISFRUTA',
-        title: 'Un momento dulce, cucharada a cucharada.',
-        description: 'Fresas, crema y tus complementos favoritos. Crea una combinación a tu gusto.'
+        eyebrow: 'Fresas con crema',
+        title: 'Fresas con crema, recién hechas.',
+        description: 'Fresa fría, crema batida al momento y tus complementos favoritos. Así de simple, así de bueno.'
       },
       frescura: {
-        eyebrow: 'FRESCURA',
-        title: 'Fresas que se roban todas las miradas.',
-        description: 'Color, brillo y textura en cada capa. El producto se queda contigo mientras el resto se desplaza.'
+        eyebrow: 'Frescura',
+        title: 'La fresa se nota.',
+        description: 'Fruta seleccionada cada mañana, firme y brillante, nunca escondida bajo el azúcar.'
       },
       cremosidad: {
-        eyebrow: 'CREMOSIDAD',
-        title: 'Capas de sabor. Una cucharada perfecta.',
-        description: 'Crema batida artesanal que abraza cada fresa. Una textura pensada para disfrutarse despacio.'
+        eyebrow: 'Cremosidad',
+        title: 'Crema batida al momento.',
+        description: 'Textura suave y ligera. La cucharada que sostiene todo lo demás.'
       },
       personalizacion: {
-        eyebrow: 'A TU MANERA',
-        title: 'Hazlo a tu manera.',
-        description: 'Elige tu tamaño y añade tus complementos favoritos.'
+        eyebrow: 'A tu manera',
+        title: 'Tu vaso, tus reglas.',
+        description: 'Elige tamaño, suma complementos y arma la combinación que se te antoje.'
       },
       cierre: {
-        eyebrow: 'BERRY CLUB',
-        title: 'Tu próximo antojo empieza aquí.'
+        eyebrow: 'Berry Club',
+        title: 'El antojo ya tiene nombre.',
+        description: 'Elige tu tamaño y llévate el antojo a tu manera.'
       }
     },
+    marquee: 'Fresa fresca · crema batida al momento · hecha a tu gusto',
     showcase: {
+      kicker: 'La carta',
       title: 'Elige tu tamaño',
-      subtitle: 'Personaliza tu experiencia a tu gusto'
+      subtitle: 'Tres medidas. La misma receta, recién batida.',
+      priceLabel: 'Precio',
+      popular: 'El más pedido'
     },
+    scrollCue: 'Desliza',
     benefits: {
-      title: '¿Por qué Berry Club?',
+      title: 'La receta, en tres partes.',
+      subtitle: 'Sin atajos: fruta, crema y lo que tú quieras añadir.',
       fresas: {
-        title: 'Fresas',
-        description: 'Fresas frescas seleccionadas para cada vaso.'
+        title: 'Fresa',
+        description: 'Fruta firme y fría, elegida cada mañana.'
       },
       crema: {
         title: 'Crema',
-        description: 'Crema batida artesanal, suave y cremosa.'
+        description: 'Batida al momento. Suave, fría, sin atajos.'
       },
       complementos: {
         title: 'Complementos',
-        description: 'Elige entre una variedad de toppings para personalizarlo.'
+        description: 'Chocolate, galleta, granola. Tú armas el resto.'
       }
     }
   },

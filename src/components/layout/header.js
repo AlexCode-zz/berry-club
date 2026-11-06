@@ -2,6 +2,7 @@ import { createElement } from '../../utils/dom.js';
 import { SITE_CONFIG } from '../../data/site-config.js';
 import { createButton } from '../ui/button.js';
 import { createLanguageSwitcher } from './language-switcher.js';
+import { strawberryIcon, cartIcon } from '../ui/icons.js';
 import { t, tCount, withLanguage } from '../../i18n/i18n.js';
 import { cartContext } from '../../context/cart-context.js';
 
@@ -12,7 +13,13 @@ export function createHeader() {
   const logo = createElement('a', {
     class: 'site-logo',
     href: withLanguage('index.html')
-  }, [SITE_CONFIG.brandName]);
+  });
+  const logoMark = createElement('span', {
+    class: 'logo-mark',
+    'aria-hidden': 'true'
+  });
+  logoMark.innerHTML = strawberryIcon(30);
+  logo.append(logoMark, createElement('span', { class: 'logo-wordmark' }, [SITE_CONFIG.brandName]));
 
   const nav = createElement('nav', {
     class: 'site-nav',
@@ -29,7 +36,7 @@ export function createHeader() {
   navItems.forEach(item => {
     const li = createElement('li', { class: 'nav-item' });
     const link = createElement(item.href ? 'a' : 'span', {
-      class: 'nav-link',
+      class: item.href ? 'nav-link' : 'nav-link is-demo',
       ...(item.href ? { href: item.href } : {})
     }, [item.text]);
     li.appendChild(link);
@@ -58,23 +65,17 @@ export function createHeader() {
     href: withLanguage('carrito.html'),
     'aria-label': t('cart.headerEmpty')
   });
-  const cartIcon = createElement('span', {
+  const cartIconEl = createElement('span', {
     class: 'header-cart-icon',
     'aria-hidden': 'true'
   });
   // Icono decorativo estático; el nombre accesible está en el enlace.
-  cartIcon.innerHTML = `
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L20.5 7H6.2"></path>
-      <circle cx="10" cy="20" r="1.2"></circle>
-      <circle cx="17.5" cy="20" r="1.2"></circle>
-    </svg>
-  `;
+  cartIconEl.innerHTML = cartIcon(20);
   const cartCount = createElement('span', {
     class: 'header-cart-count',
     'aria-hidden': 'true'
   }, ['0']);
-  cartLink.append(cartIcon, cartCount);
+  cartLink.append(cartIconEl, cartCount);
 
   const syncCart = () => {
     const { unitCount } = cartContext.getState().totals;

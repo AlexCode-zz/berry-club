@@ -59,6 +59,14 @@ export function createHero() {
         href: withLanguage(slide.cta.href)
       }, [t('cta.build')]);
       actions.appendChild(link);
+
+      if (index === 0) {
+        actions.appendChild(createElement('a', {
+          class: 'text-link',
+          href: '#tamanos'
+        }, [t('cta.viewSizes')]));
+      }
+
       content.appendChild(actions);
     }
 
@@ -69,7 +77,12 @@ export function createHero() {
         class: 'hero-scroll-cue',
         'aria-hidden': 'true'
       });
-      scrollCue.appendChild(createElement('span', { class: 'hero-scroll-line' }));
+      const cueText = createElement('span', { class: 'hero-scroll-cue-text' }, [
+        t('home.scrollCue') || 'Scroll'
+      ]);
+      const cueLine = createElement('span', { class: 'hero-scroll-line' });
+      scrollCue.appendChild(cueText);
+      scrollCue.appendChild(cueLine);
       slideEl.appendChild(scrollCue);
     }
 

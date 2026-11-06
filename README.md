@@ -4,6 +4,12 @@ Experiencia frontend de portafolio para una marca ficticia de fresas con crema. 
 
 > **Demo de portafolio.** Berry Club, sus precios y sus fotografías comerciales son ficticios.
 
+## Dirección visual
+
+La interfaz parte de un **rótulo de heladería de barrio pintado a mano**: tipografía Fraunces para titulares, Archivo para texto corrido y una paleta de fresa profunda, crema, mantequilla y pistacho. El lenguaje se apoya en bordes de tinta de 2–3 px, sombras duras, sellos girados, trama de puntos y una banda de caramelo en el pie.
+
+La portada usa una composición de cartel: panel crema fijo con el mensaje y fotografía a sangre a la derecha. Las páginas de pedido y carrito heredan el mismo repertorio (tarjetas con borde de tinta, resumen tipo recibo y controles físicos) para que el portafolio se lea como una sola marca.
+
 ## Funcionalidades
 
 - **Carrito multiproducto persistente**: agrega varias configuraciones, cambia cantidades, duplica, edita o elimina líneas y vacía el carrito con confirmación.
@@ -16,7 +22,7 @@ Experiencia frontend de portafolio para una marca ficticia de fresas con crema. 
 - **WhatsApp demostrativo**: modal previo con resumen completo, aviso de portafolio y protección contra destinatarios no configurados.
 - **Bilingüe ES/EN**: toda la interfaz, los modales, los estados, los metadatos y los mensajes generados cambian de idioma. La preferencia se conserva en la URL y en `localStorage`.
 - **Barra móvil del carrito**: visible solo con unidades y fuera de la página del carrito; respeta `safe-area-inset-bottom`.
-- **Acceso directo a Productos**: botón circular **P** junto al carrito que enlaza a `pedido.html` y conserva el idioma activo en móvil y escritorio.
+- **Acceso directo a Productos**: botón circular **P** junto al carrito que enlaza a `pedido.html` y conserva el idioma activo. Se muestra a partir de 381 px; en pantallas más estrechas cede el espacio al logo y al carrito, y la personalización sigue disponible desde el contenido y la barra inferior.
 - **Resiliencia visual**: esqueletos, carga diferida de imágenes, alternativa controlada, reintento y aviso de conexión perdida.
 - **Accesibilidad**: navegación por teclado, foco atrapado y devuelto en modales, etiquetas ARIA, mensajes de estado y controles táctiles de al menos 44 × 44 px.
 - **Sin framework ni build**: HTML semántico, CSS modular y JavaScript vanilla con módulos ES.
@@ -144,7 +150,7 @@ Se verificó el flujo completo en Chromium con viewport móvil de 390 px:
 - Ausencia del botón «Compartir mi combinación» en el personalizador.
 - Sin errores inesperados en consola.
 
-Matriz responsive comprobada: **320, 360, 390, 430, 431, 768, 769, 920, 921, 1024 y 1440 px**, sin desbordamiento horizontal. El botón **P** se verificó en portada, personalizador y carrito, en ambos idiomas y en móvil y escritorio. También se probaron 600 unidades en 30 líneas, carrito con 30 líneas, recuperación de almacenamiento corrupto, fallback y reintento de imágenes, aviso sin conexión y enlaces internos.
+Matriz responsive comprobada: **320, 360, 390, 430, 431, 768, 769, 920, 921, 1024 y 1440 px**, sin desbordamiento horizontal. El botón **P** se verificó en portada, personalizador y carrito, en ambos idiomas y en móvil y escritorio desde 381 px. También se probaron 600 unidades en 30 líneas, carrito con 30 líneas, recuperación de almacenamiento corrupto, fallback y reintento de imágenes, aviso sin conexión y enlaces internos.
 
 ## Personalización
 
@@ -207,6 +213,7 @@ La portada usa `srcset` para escoger entre la versión de 768 px y la HD. Si sus
 - La barra inferior del carrito se muestra hasta 768 px y nunca en la página del carrito.
 - El contenido reserva espacio inferior para que la barra no tape el pie de página.
 - El CTA del encabezado se oculta en pantallas muy estrechas y en el rango 769–920 px, donde la navegación reaparece antes de que todo quepa junto al botón P.
+- Por debajo de 381 px el botón P se oculta para evitar que el encabezado ensanche el layout viewport; la personalización sigue accesible desde los CTA de la portada y la barra del carrito.
 - La página de pedido no muestra CTA de encabezado porque la acción principal está en el formulario.
 - Los controles principales del carrito y los modales mantienen un área táctil mínima de 44 × 44 px.
 - Los modales atrapan el foco, cierran con Escape o clic exterior y devuelven el foco al control de origen.
@@ -216,5 +223,3 @@ La portada usa `srcset` para escoger entre la versión de 768 px y la HD. Si sus
 ## Licencia
 
 Proyecto demostrativo de portafolio. La marca, los textos comerciales y los precios son ficticios.
-
-67

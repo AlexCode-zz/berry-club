@@ -1,12 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..900,0..100,0..1;1,9..144,400..900,0..100,0..1&display=swap');
 
 @import './variables.css';
 @import './reset.css';
 
+html {
+  scroll-padding-top: calc(var(--header-height) + 1.5rem);
+}
+
 body {
   font-family: var(--font-body);
-  background-color: var(--color-white);
-  color: var(--color-text-dark);
+  background-color: var(--bc-cream);
+  color: var(--bc-ink);
+  font-size: 1rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -14,41 +19,114 @@ body {
 /* La portada se apoya en una base cálida continua: evita que cualquier
    separación entre secciones deje al descubierto una franja blanca. */
 body[data-page="home"] {
-  background-color: var(--color-cream);
+  background-color: var(--bc-cream);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-variation-settings: 'SOFT' 60, 'WONK' 1;
+}
+
+::selection {
+  background-color: var(--bc-butter);
+  color: var(--bc-ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--bc-berry);
+  outline-offset: 3px;
 }
 
 .container {
+  width: 100%;
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 var(--space-lg);
 }
 
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: clamp(1.5rem, 5vw, 4.5rem);
+  margin-bottom: clamp(2rem, 4vw, 3.25rem);
+}
+
+.section-head-copy {
+  max-width: 42rem;
+}
+
+.section-kicker {
+  margin: 0 0 0.65rem;
+  color: var(--bc-berry);
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+  font-style: italic;
+  font-variation-settings: 'SOFT' 100, 'WONK' 1;
+  line-height: 1.2;
+}
+
 .section-title {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
-  font-weight: 400;
-  text-align: center;
-  margin-bottom: var(--space-md);
-  color: var(--color-text-dark);
+  font-size: clamp(2.5rem, 4.8vw, 4.2rem);
+  font-weight: 800;
+  font-variation-settings: 'SOFT' 60, 'WONK' 1;
+  line-height: 0.96;
+  letter-spacing: -0.025em;
+  text-align: left;
+  text-wrap: balance;
+  color: var(--bc-ink);
 }
 
 .section-subtitle {
-  text-align: center;
-  color: var(--color-text-dark);
-  opacity: 0.8;
-  margin-bottom: var(--space-2xl);
-  font-size: 1.1rem;
+  max-width: 48ch;
+  margin: 0;
+  text-align: left;
+  color: var(--bc-ink);
+  opacity: 0.76;
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  line-height: 1.65;
+}
+
+.section-title-decorated::after {
+  content: none;
+}
+
+/* Enlace de texto consistente en todo el sitio. */
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  color: var(--bc-berry-deep);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.25em;
+}
+
+.text-link:hover {
+  color: var(--bc-ink);
+}
+
+@media (max-width: 900px) {
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
 }
 
 @media (max-width: 768px) {
   .container {
     padding: 0 var(--space-md);
   }
-  
+
   .section-title {
-    font-size: 2rem;
+    font-size: clamp(2.15rem, 8vw, 3rem);
   }
-  
+
   .section-subtitle {
     font-size: 1rem;
   }

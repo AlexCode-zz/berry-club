@@ -35,6 +35,9 @@ export function createProductScene() {
   inner.appendChild(img);
   stage.appendChild(inner);
 
+  // Hoja de papel crema que convierte la fotografía en un cartel partido.
+  const panel = createElement('div', { class: 'product-scene-panel' });
+
   setupImageState(img, {
     container: inner,
     fallbackSrc: PRODUCT.images.hero,
@@ -48,6 +51,7 @@ export function createProductScene() {
   scene.appendChild(backdrop);
   scene.appendChild(glow);
   scene.appendChild(stage);
+  scene.appendChild(panel);
   scene.appendChild(veil);
   
   scene.productStage = stage;

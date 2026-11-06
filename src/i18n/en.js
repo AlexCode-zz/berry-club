@@ -14,7 +14,7 @@ export const en = {
     }
   },
   portfolio: {
-    badge: 'PORTFOLIO PROJECT · INTERACTIVE DEMO'
+    badge: 'Portfolio project · Interactive demo'
   },
   language: {
     label: 'Language',
@@ -25,14 +25,16 @@ export const en = {
   },
   nav: {
     home: 'Home',
+    sizes: 'Menu',
     customize: 'Customize',
     products: 'Products',
-    demo: 'PORTFOLIO DEMO',
+    demo: 'Portfolio demo',
     mainLabel: 'Main navigation'
   },
   cta: {
-    build: 'Build Your Cup',
-    select: 'Select',
+    build: 'Build your cup',
+    select: 'Choose',
+    viewSizes: 'See sizes',
     orderWhatsApp: 'Order via WhatsApp',
     followExploring: 'Keep exploring',
     business: 'I want a website for my business'
@@ -43,53 +45,64 @@ export const en = {
     orderBadge: 'Demo · Fictional prices'
   },
   footer: {
-    links: 'Links',
+    links: 'Explore',
+    tagline: 'Strawberries and cream, made to order.',
+    businessTitle: 'Want a site like this?',
+    businessText: 'This is a portfolio project. Tell me about your business and we will build it together.',
+    businessCta: 'Chat on WhatsApp',
     copyright: '© {year} {brand}. {note}'
   },
   home: {
     slides: {
       presentacion: {
-        eyebrow: 'A TREAT WORTH SAVORING',
-        title: 'A sweet moment, spoon after spoon.',
-        description: 'Strawberries, cream, and your favorite toppings. Create a combination all your own.'
+        eyebrow: 'Strawberries & cream',
+        title: 'Strawberries and cream, made fresh.',
+        description: 'Cold strawberries, cream whipped to order, and your favorite toppings. Simple as that.'
       },
       frescura: {
-        eyebrow: 'FRESHNESS',
-        title: 'Strawberries that steal the show.',
-        description: 'Color, shine, and texture in every layer. The product stays with you while the rest of the page moves.'
+        eyebrow: 'Freshness',
+        title: 'You can taste the strawberry.',
+        description: 'Fruit picked each morning, firm and bright, never hidden under sugar.'
       },
       cremosidad: {
-        eyebrow: 'CREAMINESS',
-        title: 'Layers of flavor. One perfect spoonful.',
-        description: 'Handcrafted whipped cream embracing every strawberry. A texture made to be enjoyed slowly.'
+        eyebrow: 'Creaminess',
+        title: 'Whipped cream, made to order.',
+        description: 'Light, cold, and soft. The spoonful that holds everything else together.'
       },
       personalizacion: {
-        eyebrow: 'YOUR WAY',
-        title: 'Make it your way.',
-        description: 'Choose your size and add your favorite toppings.'
+        eyebrow: 'Your way',
+        title: 'Your cup, your rules.',
+        description: 'Pick a size, add toppings, and build the combination you crave.'
       },
       cierre: {
-        eyebrow: 'BERRY CLUB',
-        title: 'Your next craving starts here.'
+        eyebrow: 'Berry Club',
+        title: 'Your craving has a name.',
+        description: 'Choose your size and take it your way.'
       }
     },
+    marquee: 'Fresh strawberry · cream whipped to order · made your way',
     showcase: {
+      kicker: 'The menu',
       title: 'Choose your size',
-      subtitle: 'Customize your experience your way'
+      subtitle: 'Three sizes. The same recipe, whipped to order.',
+      priceLabel: 'Price',
+      popular: 'Most ordered'
     },
+    scrollCue: 'Scroll',
     benefits: {
-      title: 'Why Berry Club?',
+      title: 'The recipe, in three parts.',
+      subtitle: 'No shortcuts: fruit, cream, and whatever you add.',
       fresas: {
-        title: 'Strawberries',
-        description: 'Fresh strawberries selected for every cup.'
+        title: 'Strawberry',
+        description: 'Firm, cold fruit, picked each morning.'
       },
       crema: {
         title: 'Cream',
-        description: 'Handcrafted whipped cream, smooth and creamy.'
+        description: 'Whipped to order. Soft, cold, no shortcuts.'
       },
       complementos: {
         title: 'Toppings',
-        description: 'Choose from a variety of toppings to make it your own.'
+        description: 'Chocolate, cookie, granola. You build the rest.'
       }
     }
   },

@@ -38,7 +38,7 @@
   overflow: hidden;
   border-radius: 0.65rem;
   background:
-    linear-gradient(135deg, rgba(248, 221, 227, 0.92) 0%, rgba(255, 248, 240, 0.96) 52%, rgba(243, 201, 210, 0.78) 100%);
+    linear-gradient(135deg, #F8DFE3 0%, var(--bc-cream) 52%, #F1C3CB 100%);
 }
 
 .skeleton::after {
@@ -80,8 +80,8 @@
 .product-scene-skeleton {
   border-radius: 0;
   background:
-    radial-gradient(ellipse at 68% 42%, rgba(255, 255, 255, 0.58) 0%, rgba(255, 255, 255, 0) 43%),
-    linear-gradient(135deg, #fbe9ed 0%, #f8dde3 56%, #efbdc9 100%);
+    radial-gradient(ellipse at 68% 42%, rgba(255, 247, 234, 0.62) 0%, rgba(255, 247, 234, 0) 43%),
+    linear-gradient(150deg, #FBE3E5 0%, var(--bc-blush) 56%, #E9A8B2 100%);
 }
 
 .product-scene-skeleton::before {
@@ -92,11 +92,11 @@
   width: 27%;
   height: 68%;
   border-radius: 42% 42% 26% 26% / 17% 17% 45% 45%;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 247, 234, 0.52);
   box-shadow:
-    -5vw 17vh 0 -1.2vw rgba(217, 54, 80, 0.13),
-    4vw 23vh 0 -1.4vw rgba(143, 38, 61, 0.1),
-    8vw 8vh 0 -1.8vw rgba(255, 255, 255, 0.32);
+    -5vw 17vh 0 -1.2vw rgba(140, 20, 40, 0.14),
+    4vw 23vh 0 -1.4vw rgba(43, 7, 16, 0.12),
+    8vw 8vh 0 -1.8vw rgba(255, 247, 234, 0.34);
   filter: blur(0.2px);
 }
 
@@ -114,8 +114,8 @@
   height: 62%;
   transform: translateX(-50%);
   border-radius: 44% 44% 30% 30% / 18% 18% 44% 44%;
-  background: rgba(255, 255, 255, 0.48);
-  box-shadow: 0 2rem 3rem -2rem rgba(143, 38, 61, 0.28);
+  background: rgba(255, 247, 234, 0.5);
+  box-shadow: 0 2rem 3rem -2rem rgba(43, 7, 16, 0.3);
 }
 
 .size-image-skeleton::before {
@@ -127,7 +127,7 @@
   height: 54%;
   transform: translateX(-50%);
   border-radius: 45% 45% 32% 32% / 18% 18% 46% 46%;
-  background: rgba(255, 255, 255, 0.38);
+  background: rgba(255, 247, 234, 0.42);
 }
 
 /* Estado de error permanente: no hay icono roto ni espacio colapsado. */
@@ -144,9 +144,9 @@
   overflow: auto;
   border-radius: inherit;
   background:
-    radial-gradient(ellipse at 50% 15%, rgba(255, 255, 255, 0.7), transparent 55%),
-    linear-gradient(145deg, #fbe9ed 0%, #f3c9d2 100%);
-  color: var(--color-rose-deep);
+    radial-gradient(ellipse at 50% 15%, rgba(255, 247, 234, 0.7), transparent 55%),
+    linear-gradient(145deg, #FBE3E5 0%, #F1C3CB 100%);
+  color: var(--bc-berry-deep);
   text-align: center;
 }
 
@@ -156,9 +156,10 @@
   justify-content: center;
   width: 30px;
   height: 30px;
-  border: 1px solid rgba(143, 38, 61, 0.28);
-  border-radius: 50%;
-  background-color: rgba(255, 248, 240, 0.7);
+  border: 1.5px solid var(--bc-ink);
+  border-radius: 0.4rem;
+  background-color: var(--bc-butter);
+  color: var(--bc-ink);
   font-size: 1.05rem;
   font-weight: 700;
   line-height: 1;
@@ -196,22 +197,25 @@
   min-height: 44px;
   margin-top: 0.35rem;
   padding: 0.45rem 0.9rem;
-  border: 1px solid var(--color-strawberry);
-  border-radius: 999px;
-  background-color: rgba(255, 248, 240, 0.92);
-  color: var(--color-rose-deep);
+  border: 2px solid var(--bc-ink);
+  border-radius: 0.35rem;
+  background-color: var(--bc-butter);
+  color: var(--bc-ink);
   font-size: 0.76rem;
   font-weight: 700;
   line-height: 1.2;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  box-shadow: 2px 2px 0 var(--bc-ink);
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .retry-button:hover,
 .retry-button:focus-visible {
-  background-color: var(--color-strawberry);
-  color: var(--color-white);
-  outline: 2px solid var(--color-rose-deep);
+  background-color: var(--bc-berry);
+  color: var(--bc-cream);
+  outline: 2px solid var(--bc-ink);
   outline-offset: 2px;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--bc-ink);
 }
 
 .retry-button:disabled {
@@ -234,14 +238,15 @@
   max-width: calc(100% - 1.4rem);
   transform: translateX(-50%);
   padding: 0.35rem 0.65rem;
-  border-radius: 999px;
-  background-color: rgba(255, 248, 240, 0.92);
-  color: var(--color-rose-deep);
+  border: 1.5px solid var(--bc-ink);
+  border-radius: 0.35rem;
+  background-color: var(--bc-butter);
+  color: var(--bc-ink);
   font-size: 0.68rem;
   font-weight: 600;
   line-height: 1.35;
   text-align: center;
-  box-shadow: 0 8px 20px -14px rgba(42, 32, 34, 0.5);
+  box-shadow: 2px 2px 0 var(--bc-ink);
 }
 
 .image-status:empty {
